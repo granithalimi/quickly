@@ -1,12 +1,16 @@
 import { React, useState} from 'react'
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa'
+import image1 from "../assets/slider images/image1.webp"
+import image2 from "../assets/slider images/image2.webp"
+import image3 from "../assets/slider images/image3.webp"
+import image4 from "../assets/slider images/image4.webp"
 
 function Slider() {
   const images = [
-    "https://www.bigbang.si/upload/rotator_element/thumb/1480x540-vikend_679b54284d9b3_1480x540c.webp",
-    "https://www.bigbang.si/upload/staticcontent_item/1788/thumb/1480x540-krovno_67a46bf5316b4_1480x1480r.webp",
-    "https://www.bigbang.si/upload/rotator_element/thumb/1480x540-mga_67ab18f6b5c10_1480x540c.webp",
-    "https://www.bigbang.si/upload/rotator_element/thumb/1480x540-tv_67b3124e005f2_1480x540c.webp",
+    image1,
+    image2,
+    image3,
+    image4,
   ] 
 
   const right = () => {

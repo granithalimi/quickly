@@ -4,11 +4,11 @@ import Slider from '../components/Slider'
 
 function Home() {
   return (
-    <>
+    <div className="h-[3000px]">
       <Header />
       {/* SLIDER */}
       <Slider />
-    </>
+    </div>
   )
 }
 

@@ -6,7 +6,6 @@ function Home() {
   return (
     <div className="h-[3000px]">
       <Header />
-      {/* SLIDER */}
       <Slider />
     </div>
   )

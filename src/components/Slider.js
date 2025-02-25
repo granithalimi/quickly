@@ -33,7 +33,7 @@ function Slider() {
 
   const [index, setindex] = useState(0)
   return (
-    <div className="w-full h-[600px] flex overflow-hidden relative">
+    <div className="w-full xl:h-[615px] md:h-[380px] h-[250px] flex overflow-hidden relative">
       {
         images.map((img, ind) => (
           <img key={ind} src={img} className={`w-full h-full object-cover shrink-0 grow-0 -translate-x-[${100 * index}%] duration-300`} />

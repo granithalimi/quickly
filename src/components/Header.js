@@ -1,10 +1,16 @@
-import React from 'react'
+import { React, useState, useEffect} from 'react'
 import logo from "../assets/images/logo.png"
 import { Link } from 'react-router-dom'
 import { BsSearch } from "react-icons/bs";
+import { RxHamburgerMenu } from "react-icons/rx";
+import { IoMdClose } from "react-icons/io";
 
 function Header() {
-  
+  const [menu, setmenu] = useState(false)
+  const toggleMenu = e => {
+    setmenu(p => !p)
+  }
+
   return (
     <>
       <div className="sticky top-0 w-full h-16 flex justify-center z-10 bg-gray-200 drop-shadow-[0_15px_15px_rgba(0,0,0,0.2)]">
@@ -19,14 +25,29 @@ function Header() {
             </div>
           </div>
           <div className="w-1/2 flex justify-end items-center">
-            <Link className="mx-3 hover:text-gray-400 hover:underline duration-300">Products</Link>
-            <Link className="mx-3 hover:text-gray-400 hover:underline duration-300">Categories</Link>
-            <Link className="mx-3 hover:text-gray-400 hover:underline duration-300">Profile</Link>
-            <div className="flex items">
+            <Link className="hidden md:block mx-3 hover:text-gray-400 hover:underline duration-300">Products</Link>
+            <Link className="hidden md:block mx-3 hover:text-gray-400 hover:underline duration-300">Categories</Link>
+            <Link className="hidden md:block mx-3 hover:text-gray-400 hover:underline duration-300">Profile</Link>
+            <div className="hidden md:flex items">
               <input className="rounded-lg ps-1 text-md py-1 border border-black" placeholder="Search..." />
               <button className="bg-green-400 ms-2 rounded-lg p-2 hover:bg-green-300"><BsSearch /></button>
             </div>
+            <button onClick={e => toggleMenu()} className={`${(menu) ? "hidden" : "block"} md:hidden cursor-pointer`}>
+              <RxHamburgerMenu />
+            </button>
+            <button onClick={e => toggleMenu()} className={`${(menu) ? "block" : "hidden"} md:hidden cursor-pointer`}>
+              <IoMdClose />
+            </button>
           </div>
+        </div>
+        <div className={`${(menu) ? "top-16" : "-top-[1000%]"} flex md:hidden flex-col w-1/2 h-[550px] absolute right-0 bg-gray-200 duration-300 px-3 gap-3`}>
+            <Link className="hover:text-gray-400 hover:underline duration-300">Products</Link>
+            <Link className="hover:text-gray-400 hover:underline duration-300">Categories</Link>
+            <Link className="hover:text-gray-400 hover:underline duration-300">Profile</Link>
+            <div className="flex items-center">
+              <input className="rounded-lg ps-1 w-2/3 text-md py-1 border border-black" placeholder="Search..." />
+              <button className="bg-green-400 ms-2 rounded-lg p-2 hover:bg-green-300"><BsSearch /></button>
+            </div>
         </div>
       </div>
     </>

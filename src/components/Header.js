@@ -1,18 +1,19 @@
-import { React, useState, useEffect} from 'react'
+import { React, useState, useEffect, useContext} from 'react'
 import logo from "../assets/images/logo.png"
 import { Link } from 'react-router-dom'
 import { MdOutlineDarkMode } from "react-icons/md";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { IoMdClose } from "react-icons/io";
 import { IoSunny } from "react-icons/io5";
+import { ColorContext } from '../App';
 
 function Header() {
   const [menu, setmenu] = useState(false)
-  const [dark, setdark] = useState(false)
-
+  const [darkMode, setdarkMode] = useContext(ColorContext)
+  
   return (
     <>
-      <div className={`${(dark) ? "bg-gray-800" : "bg-gray-200"} sticky top-0 w-full h-16 flex justify-center z-10 drop-shadow-[0_15px_15px_rgba(0,0,0,0.2)]`}>
+      <div className={`${(darkMode) ? "bg-gray-800" : "bg-gray-200"} sticky top-0 w-full h-16 flex justify-center z-10 drop-shadow-[0_15px_15px_rgba(0,0,0,0.2)]`}>
         <div className="w-2/3 h-full flex">
           <div className="w-1/2 flex items-center">
             <div className="w-16 h-16 bg-gray-400 relative flex justify-center items-center">
@@ -24,36 +25,36 @@ function Header() {
             </div>
           </div>
           <div className="w-1/2 flex justify-end items-center">
-            <Link className={`${(dark) ? "text-white" : ""} hidden md:block mx-3 hover:text-gray-400 hover:underline duration-300`}>Products</Link>
-            <Link className={`${(dark) ? "text-white" : ""} hidden md:block mx-3 hover:text-gray-400 hover:underline duration-300`}>Categories</Link>
-            <Link className={`${(dark) ? "text-white" : ""} hidden md:block mx-3 hover:text-gray-400 hover:underline duration-300`}>Profile</Link>
+            <Link className={`${(darkMode) ? "text-white" : ""} hidden md:block mx-3 hover:text-gray-400 hover:underline duration-300`}>Products</Link>
+            <Link className={`${(darkMode) ? "text-white" : ""} hidden md:block mx-3 hover:text-gray-400 hover:underline duration-300`}>Categories</Link>
+            <Link className={`${(darkMode) ? "text-white" : ""} hidden md:block mx-3 hover:text-gray-400 hover:underline duration-300`}>Profile</Link>
             <div className="hidden md:flex items">
               <input className="rounded-lg ps-1 text-md py-1 border border-black" placeholder="Search..." />
-              <button onClick={() => setdark(!dark)} className={`${(dark) ? "bg-white hover:bg-gray-200" : "bg-blue-900 hover:bg-blue-700"} ms-2 rounded-lg p-2 `}>
+              <button onClick={() => setdarkMode(!darkMode)} className={`${(darkMode) ? "bg-white hover:bg-gray-200" : "bg-blue-900 hover:bg-blue-700"} ms-2 rounded-lg p-2 `}>
                 {
-                  (dark) ?
+                  (darkMode) ?
                   <IoSunny className="text-blue-900" /> :
                   <MdOutlineDarkMode className="text-white" />
                 }
               </button>
             </div>
             <button onClick={() => setmenu(!menu)} className={`${(menu) ? "hidden" : "block"} md:hidden cursor-pointer`}>
-              <RxHamburgerMenu className={`${(dark) ? "text-white" : ""}`} />
+              <RxHamburgerMenu className={`${(darkMode) ? "text-white" : ""}`} />
             </button>
             <button onClick={() => setmenu(!menu)} className={`${(menu) ? "block" : "hidden"} md:hidden cursor-pointer`}>
-              <IoMdClose className={`${(dark) ? "text-white" : ""}`} />
+              <IoMdClose className={`${(darkMode) ? "text-white" : ""}`} />
             </button>
           </div>
         </div>
-        <div className={`${(menu) ? "top-16" : "-top-[1000%]"} ${(dark) ? "bg-gray-800" : "bg-gray-200"} flex md:hidden flex-col w-1/2 h-[550px] absolute right-0 bg-gray-200 duration-300 px-3 gap-3`}>
-            <Link className={`${(dark) ? "text-white" : ""} mx-3 hover:text-gray-400 hover:underline duration-300`}>Products</Link>
-            <Link className={`${(dark) ? "text-white" : ""} mx-3 hover:text-gray-400 hover:underline duration-300`}>Categories</Link>
-            <Link className={`${(dark) ? "text-white" : ""} mx-3 hover:text-gray-400 hover:underline duration-300`}>Profile</Link>
+        <div className={`${(menu) ? "top-16" : "-top-[1000%]"} ${(darkMode) ? "bg-gray-800" : "bg-gray-200"} flex md:hidden flex-col w-1/2 h-[550px] absolute right-0 bg-gray-200 duration-300 px-3 gap-3`}>
+            <Link className={`${(darkMode) ? "text-white" : ""} mx-3 hover:text-gray-400 hover:underline duration-300`}>Products</Link>
+            <Link className={`${(darkMode) ? "text-white" : ""} mx-3 hover:text-gray-400 hover:underline duration-300`}>Categories</Link>
+            <Link className={`${(darkMode) ? "text-white" : ""} mx-3 hover:text-gray-400 hover:underline duration-300`}>Profile</Link>
             <div className="flex items-center">
               <input className="rounded-lg ps-1 w-2/3 text-md py-1 border border-black" placeholder="Search..." />
-              <button onClick={() => setdark(!dark)} className={`${(dark) ? "bg-white hover:bg-gray-200" : "bg-blue-900 hover:bg-blue-700"} ms-2 rounded-lg p-2 `}>
+              <button onClick={() => setdarkMode(!darkMode)} className={`${(darkMode) ? "bg-white hover:bg-gray-200" : "bg-blue-900 hover:bg-blue-700"} ms-2 rounded-lg p-2 `}>
                 {
-                  (dark) ?
+                  (darkMode) ?
                   <IoSunny className="text-blue-900" /> :
                   <MdOutlineDarkMode className="text-white" />
                 }

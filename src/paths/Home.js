@@ -3,10 +3,13 @@ import Header from '../components/Header'
 import Slider from '../components/Slider'
 import { ColorContext } from '../App'
 import SubHeader from '../components/SubHeader';
+import Smartphones from '../components/Smartphones';
 
 function Home() {
   const [darkMode] = useContext(ColorContext);
-  const [products, setproducts] = useState([])
+  const [fragrances, setfragrances] = useState([])
+  const [womenDresses, setwomenDresses] = useState([])
+  const [menShirts, setmenShirts] = useState([])
 
   useEffect(() => {
     console.log("rerendered")
@@ -19,9 +22,15 @@ function Home() {
     .then(data => {
       (data.status == "ok") &&
       // fetch the data if the json is working...
-      fetch('https://dummyjson.com/products/categories')
+      fetch('https://dummyjson.com/products/category/fragrances?limit=4')
       .then(res => res.json())
-      .then(data => setproducts(data));
+      .then(data => setfragrances(data.products));
+      fetch('https://dummyjson.com/products/category/womens-dresses?limit=4')
+      .then(res => res.json())
+      .then(data => setwomenDresses(data.products));
+      fetch('https://dummyjson.com/products/category/mens-shirts?limit=4')
+      .then(res => res.json())
+      .then(data => setmenShirts(data.products));
     });
   }, [])
   
@@ -31,6 +40,8 @@ function Home() {
       <Header />
       <SubHeader />
       <Slider />
+      <Smartphones />
+
     </div>
   )
 }

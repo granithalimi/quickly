@@ -41,7 +41,6 @@ function Home() {
       <SubHeader />
       <Slider />
       <Smartphones />
-
     </div>
   )
 }

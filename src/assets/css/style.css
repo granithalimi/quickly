@@ -1,0 +1,24 @@
+@keyframes priceTags {
+    0%, 100%{
+        transform: translateY(0px) rotate(45deg);
+    }
+    50%{
+        transform: translateY(10px) rotate(45deg);
+    }
+}
+
+.percentages{
+    animation: priceTags 4s infinite;
+}
+
+.hidden-phones{
+    opacity: 0;
+    transform: translateX(-300%);
+    filter: blur(5px);
+}
+.show-phones{
+    opacity: 1;
+    transform: translateX(0);
+    filter: blur(0);
+    transition: all 1s;
+}

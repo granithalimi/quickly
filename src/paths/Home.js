@@ -4,11 +4,12 @@ import Slider from '../components/Slider'
 import { ColorContext } from '../App'
 import SubHeader from '../components/SubHeader';
 import Smartphones from '../components/Smartphones';
+import Fragrances from '../components/Fragrances';
+import WomensDresses from '../components/WomensDresses';
+import MensShirts from '../components/MensShirts';
 
 function Home() {
   const [darkMode] = useContext(ColorContext);
-  const [fragrances, setfragrances] = useState([])
-  const [womenDresses, setwomenDresses] = useState([])
   const [menShirts, setmenShirts] = useState([])
 
   useEffect(() => {
@@ -22,12 +23,7 @@ function Home() {
     .then(data => {
       (data.status == "ok") &&
       // fetch the data if the json is working...
-      fetch('https://dummyjson.com/products/category/fragrances?limit=4')
-      .then(res => res.json())
-      .then(data => setfragrances(data.products));
-      fetch('https://dummyjson.com/products/category/womens-dresses?limit=4')
-      .then(res => res.json())
-      .then(data => setwomenDresses(data.products));
+
       fetch('https://dummyjson.com/products/category/mens-shirts?limit=4')
       .then(res => res.json())
       .then(data => setmenShirts(data.products));
@@ -42,7 +38,9 @@ function Home() {
       <Slider />
       <div className="h-[50px]"></div>
       <Smartphones />
-      <div className="h-[350px]"></div>
+      <Fragrances />
+      <WomensDresses />
+      <MensShirts />
     </div>
   )
 }

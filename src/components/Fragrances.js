@@ -2,10 +2,9 @@ import { React, useState, useEffect, useContext} from 'react'
 import { ColorContext } from '../App'
 import '../assets/css/style.css'
 import { useInView } from 'react-intersection-observer'
-import { Link } from 'react-router-dom'
 
-function Smartphones() {
-    const [smartphones, setsmartphones] = useState([])
+function Fragrances() {
+    const [fragrances, setfragrances] = useState([])
     const [darkMode, setdarkMode] = useContext(ColorContext)
 
     const [refPhones, inViewPhones] = useInView({
@@ -14,19 +13,19 @@ function Smartphones() {
     });
 
     useEffect(() => {
-        fetch('https://dummyjson.com/products/category/smartphones?limit=4')
+        fetch('https://dummyjson.com/products/category/fragrances?limit=4')
         .then(res => res.json())
-        .then(data => setsmartphones(data.products));
+        .then(data => setfragrances(data.products));
     }, [])
     
   return (
     <>
-        <h1 className="text-center text-4xl font-bold text-blue-500 my-16 montserrat-font">Smartphones</h1>
+        <h1 className="text-center text-4xl font-bold text-blue-500 my-16 montserrat-font">Fragrances</h1>
             <div ref={refPhones}>
-                <Link className="grid xl:grid-cols-4 md:grid-cols-2 mx-auto w-2/3 gap-4 pb-10">
+                <div className="grid xl:grid-cols-4 md:grid-cols-2 mx-auto w-2/3 gap-4 pb-10">
                     {
-                        (smartphones && smartphones.length > 0) &&
-                        smartphones.map((phone, ind) => (
+                        (fragrances && fragrances.length > 0) &&
+                        fragrances.map((phone, ind) => (
                             <div key={ind} className={`${darkMode ? "hover:bg-gray-500" : "hover:bg-gray-200"} ${(inViewPhones === true) ? "show-phones" : ""} hidden-phones flex flex-col border border-gray-300 rounded-xl h-72 relative cursor-pointer hover:scale-105`}>
                                 <div className="w-full h-3/5 p-3">
                                     <img className="w-full h-full object-contain" src={phone.images[0]} />
@@ -39,10 +38,10 @@ function Smartphones() {
                             </div>
                         ))
                     }
-                </Link>
+                </div>
             </div>
     </>
   )
 }
 
-export default Smartphones
+export default Fragrances

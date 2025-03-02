@@ -40,7 +40,9 @@ function Home() {
       <Header />
       <SubHeader />
       <Slider />
+      <div className="h-[50px]"></div>
       <Smartphones />
+      <div className="h-[350px]"></div>
     </div>
   )
 }

@@ -25,7 +25,7 @@ function Header() {
             </div>
           </div>
           <div className="w-1/2 flex justify-end items-center">
-            <Link className={`${(darkMode) ? "text-white" : ""} hidden md:block mx-3 hover:text-gray-400 hover:underline duration-300`}>Products</Link>
+            <Link to="/products" className={`${(darkMode) ? "text-white" : ""} hidden md:block mx-3 hover:text-gray-400 hover:underline duration-300`}>Products</Link>
             <Link className={`${(darkMode) ? "text-white" : ""} hidden md:block mx-3 hover:text-gray-400 hover:underline duration-300`}>Categories</Link>
             <Link className={`${(darkMode) ? "text-white" : ""} hidden md:block mx-3 hover:text-gray-400 hover:underline duration-300`}>Profile</Link>
             <div className="hidden md:flex items">
@@ -47,7 +47,7 @@ function Header() {
           </div>
         </div>
         <div className={`${(menu) ? "top-16" : "-top-[1000%]"} ${(darkMode) ? "bg-gray-800" : "bg-gray-200"} flex md:hidden flex-col w-1/2 h-[550px] absolute right-0 bg-gray-200 duration-300 px-3 gap-3`}>
-            <Link className={`${(darkMode) ? "text-white" : ""} mx-3 hover:text-gray-400 hover:underline duration-300`}>Products</Link>
+            <Link to="/products" className={`${(darkMode) ? "text-white" : ""} mx-3 hover:text-gray-400 hover:underline duration-300`}>Products</Link>
             <Link className={`${(darkMode) ? "text-white" : ""} mx-3 hover:text-gray-400 hover:underline duration-300`}>Categories</Link>
             <Link className={`${(darkMode) ? "text-white" : ""} mx-3 hover:text-gray-400 hover:underline duration-300`}>Profile</Link>
             <div className="flex items-center">

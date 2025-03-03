@@ -6,7 +6,9 @@ import SubHeader from '../components/SubHeader';
 import Smartphones from '../components/Smartphones';
 import Fragrances from '../components/Fragrances';
 import WomensDresses from '../components/WomensDresses';
-import MensShirts from '../components/MensShirts';
+import MenShirts from '../components/MenShirts';
+import Footer from '../components/Footer';
+import ProductsSection from '../components/ProductsSection';
 
 function Home() {
   const [darkMode] = useContext(ColorContext);
@@ -38,9 +40,11 @@ function Home() {
       <Slider />
       <div className="h-[50px]"></div>
       <Smartphones />
-      <Fragrances />
+      <ProductsSection />
       <WomensDresses />
-      <MensShirts />
+      {/* Categories */}
+      <MenShirts />
+      <Footer />
     </div>
   )
 }

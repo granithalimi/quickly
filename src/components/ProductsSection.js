@@ -1,22 +1,26 @@
 import React from 'react'
 import { FaArrowRight } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
+import "../assets/css/style.css"
+import { useInView } from 'react-intersection-observer'
+import prod from "../assets/images/wrist-watches.jpg"
 
 function ProductsSection() {
+    const [refProd, inViewProd] = useInView({
+        threshold: .5,
+    });
+
   return (
-    <div className="flex justify-center my-10">
-        <div className="w-2/3 flex">
-            <div id="text" className="w-1/2">
-                <p className="text-gray-500 font-semibold">
-                    Our products are designed with quality, innovation, and customer satisfaction in mind. Whether you're looking for everyday essentials or unique finds, we offer a carefully curated selection to meet your needs. Each item is crafted to ensure durability, functionality, and style, making your shopping experience effortless and enjoyable. We believe in providing value, offering competitive prices without compromising on quality. Browse our collection and discover products that enhance your lifestyle, simplify daily tasks, and bring joy to your routine. With fast shipping and excellent customer support, we make shopping easy and reliable. Find the perfect product for you today!
-                </p>
-            </div>
-            <div id="title" className="w-1/2 flex items-center justify-center">
-                <h1 className="montserrat-font text-center text-3xl">
-                    Check Our Products!
-                </h1>
-                <Link to="/products" className="py-1 px-3 bg-indigo-400 rounded-lg text-white hover:bg-indigo-300 duration-300 mx-3">Go to Products</Link>
-            </div>
+    <div ref={refProd} className="py-60 mx-auto grid lg:grid-cols-5 md:grid-cols-2 grid-cols-1 w-2/3 gap-16">
+        <div className={`${(inViewProd == true) && "show-prod-left"} hidden-prod-left lg:col-span-2 flex items-center`}>
+            <img src={prod} className="rounded-xl" />
+        </div>
+        <div className={`${(inViewProd == true) && "show-prod-right"} hidden-prod-right flex flex-col justify-center items-start lg:col-span-3`}>
+            <h1 className={"montserrat-font text-3xl text-gray-800"}>Check All Products!</h1>
+            <p className="text-gray-500 text-start">
+                Our products combine quality, innovation, and style to meet your needs. We offer a carefully curated selection at competitive prices, ensuring durability and functionality. Shop with confidence, enjoy fast shipping, and experience excellent customer support. Find your perfect product today!
+            </p>
+            <Link to="/products" className="px-3 py-1 rounded-lg bg-blue-400 mt-5 hover:bg-blue-300 duration-300" ><FaArrowRight className="text-white text-xl" /></Link>
         </div>
     </div>
   )

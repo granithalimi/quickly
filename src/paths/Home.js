@@ -9,6 +9,7 @@ import WomensDresses from '../components/WomensDresses';
 import MenShirts from '../components/MenShirts';
 import Footer from '../components/Footer';
 import ProductsSection from '../components/ProductsSection';
+import CategoriesSection from '../components/CategoriesSection';
 
 function Home() {
   const [darkMode] = useContext(ColorContext);
@@ -42,7 +43,7 @@ function Home() {
       <Smartphones />
       <ProductsSection />
       <WomensDresses />
-      {/* Categories */}
+      <CategoriesSection />
       <MenShirts />
       <Footer />
     </div>

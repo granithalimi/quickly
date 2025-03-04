@@ -21,7 +21,7 @@ function WomensDresses() {
     
   return (
     <>
-        <h1 className="text-center text-4xl font-bold text-blue-500 my-16 montserrat-font">Womens Dresses</h1>
+        <h1 className="text-center text-4xl font-bold text-blue-500 mb-16 montserrat-font">Womens Dresses</h1>
             <div ref={refDresses}>
                 <div className="grid xl:grid-cols-4 md:grid-cols-2 mx-auto w-2/3 gap-4 pb-10">
                     {

@@ -1,4 +1,4 @@
-import { React, useState} from 'react'
+import { React, useState, useEffect, useRef} from 'react'
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa'
 import image1 from "../assets/slider images/image1.webp"
 import image2 from "../assets/slider images/image2.webp"
@@ -6,12 +6,19 @@ import image3 from "../assets/slider images/image3.webp"
 import image4 from "../assets/slider images/image4.webp"
 
 function Slider() {
-  const images = [
-    image1,
-    image2,
-    image3,
-    image4,
-  ] 
+  const [index, setindex] = useState(0)
+  const intervalId = useRef(null)
+
+  useEffect(() => {
+    intervalId.current = setInterval(() => {
+      right()
+    }, 4000)
+  
+    return () => {
+      clearInterval(intervalId.current)
+    }
+  }, [index])
+  
 
   const right = () => {
     if(index === images.length - 1){
@@ -31,7 +38,13 @@ function Slider() {
     setindex(ind)
   }
 
-  const [index, setindex] = useState(0)
+  const images = [
+    image1,
+    image2,
+    image3,
+    image4,
+  ] 
+
   return (
     <div className="w-full h-full">
       <div className="w-full xl:h-[615px] md:h-[380px] h-[250px] flex overflow-hidden relative">

@@ -3,6 +3,7 @@ import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './paths/Home';
 import Products from "./paths/Products";
+import Categories from "./paths/Categories";
 
 export const ColorContext = createContext();
 
@@ -15,6 +16,7 @@ function App() {
         <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/products" element={<Products />} />
+            <Route path="/categories" element={<Categories />} />
         </Routes>
       </BrowserRouter>
     </ColorContext.Provider>

@@ -35,7 +35,7 @@ function Home() {
   
 
   return (
-    <div className={`${darkMode ? "bg-gray-700" : ""}`}>
+    <div className={`${darkMode && "bg-gray-700"}`}>
       <Header />
       <SubHeader />
       <Slider />

@@ -22,7 +22,7 @@ function CategoriesSection() {
                 <p className={`text-white drop-shadow-md md:text-end`} style={{webKitTextStroke: "3px black"}}>
                     Easily find what you need with our smart filtering options! Browse products by category, price, brand, or features to match your preferences. Our intuitive filters help you narrow down choices quickly, saving time and effort. Shop effortlessly and discover the perfect product with just a few clicks!
                 </p>
-                <Link to="/products" className="px-3 py-1 rounded-lg bg-blue-400 mt-5 hover:bg-blue-300 duration-300" ><FaArrowRight className="text-white text-xl" /></Link>
+                <Link to="/categories" className="px-3 py-1 rounded-lg bg-blue-400 mt-5 hover:bg-blue-300 duration-300" ><FaArrowRight className="text-white text-xl" /></Link>
             </div>
             <div className={`${(inViewCategories === true) && "show-prod-right"} hidden-prod-right lg:col-span-2 flex items-center`}>
                 <img alt={prod} src={prod} className="rounded-xl" />

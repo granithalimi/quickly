@@ -14,7 +14,7 @@ function WomensDresses() {
     });
 
     useEffect(() => {
-        fetch('https://dummyjson.com/products/category/womens-dresses?limit=4')
+        fetch('https://dummyjson.com/products/category/womens-dresses?limit=4&select=title,images,price,discountPercentage')
         .then(res => res.json())
         .then(data => setwomensDresses(data.products));
     }, [])

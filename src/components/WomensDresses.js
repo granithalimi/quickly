@@ -14,9 +14,14 @@ function WomensDresses() {
     });
 
     useEffect(() => {
-        fetch('https://dummyjson.com/products/category/womens-dresses?limit=4&select=title,images,price,discountPercentage')
-        .then(res => res.json())
-        .then(data => setwomensDresses(data.products));
+        fetch('https://dummyjson.com/test')
+        .then(data => data.json())
+        .then(data => {
+            (data.status === "ok") && 
+            fetch('https://dummyjson.com/products/category/womens-dresses?limit=4&select=title,images,price,discountPercentage')
+            .then(res => res.json())
+            .then(data => setwomensDresses(data.products));
+        })
     }, [])
     
   return (

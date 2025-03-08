@@ -14,9 +14,14 @@ function MensShirts() {
     });
 
     useEffect(() => {
-        fetch('https://dummyjson.com/products/category/mens-shirts?limit=4&select=title,images,price,discountPercentage')
-        .then(res => res.json())
-        .then(data => setmenShirts(data.products));
+        fetch('https://dummyjson.com/test')
+        .then(data => data.json())
+        .then(data => {
+            (data.status === "ok") && 
+            fetch('https://dummyjson.com/products/category/mens-shirts?limit=4&select=title,images,price,discountPercentage')
+            .then(res => res.json())
+            .then(data => setmenShirts(data.products));
+        })
     }, [])
     
   return (

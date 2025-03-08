@@ -11,17 +11,26 @@ function Products() {
   const [page, setpage] = useState(0)
   
   useEffect(() => {
-    fetch(`https://dummyjson.com/products?limit=10&skip=${page}&select=title,images,price,discountPercentage`)
+    window.scrollTo(0, 0);
+  }, [])
+
+  useEffect(() => {
+    fetch('https://dummyjson.com/test')
     .then(data => data.json())
-    .then(data => setproducts(data.products))
-  }, [products])
+    .then(data => {
+        (data.status === "ok") && 
+        fetch(`https://dummyjson.com/products?limit=12&skip=${page}&select=title,images,price,discountPercentage`)
+        .then(data => data.json())
+        .then(data => setproducts(data.products))
+    })
+  }, [products, page])
   const right = () => {
-    if(page >= 0 && page <= 180) setpage(p => p+10)
+    if(page >= 0 && page <= 180) setpage(p => p+12)
     else setpage(0)
   }
   const left = () => {
     if(page === 0) setpage(190)
-    else setpage(p => p-10)
+    else setpage(p => p-12)
   }
 
   return (
@@ -38,7 +47,7 @@ function Products() {
               products.map((prod, ind) => (
                 <Link key={ind} className={`${darkMode ? "hover:bg-gray-500" : "hover:bg-gray-200"} flex flex-col border border-gray-300 rounded-xl h-72 relative cursor-pointer hover:scale-105 duration-300`}>
                     <div className="w-full h-3/5 p-3">
-                        <img className="w-full h-full object-contain" src={prod.images[0]} />
+                        <img className="w-full h-full object-contain" src={prod.images[0]} alt={prod.images[0]} />
                     </div>
                     <div className="w-full h-2/5 p-3">
                         <h1 className={`${(darkMode) ? "text-white" : ""} text-center font-bold`}>{prod.title}</h1>

@@ -14,9 +14,15 @@ function Smartphones() {
     });
 
     useEffect(() => {
-        fetch('https://dummyjson.com/products/category/smartphones?limit=4&select=title,images,price,discountPercentage')
-        .then(res => res.json())
-        .then(data => setsmartphones(data.products));
+        fetch('https://dummyjson.com/test')
+        .then(data => data.json())
+        .then(data => {
+            (data.status === "ok") && 
+            fetch('https://dummyjson.com/products/category/smartphones?limit=4&select=title,images,price,discountPercentage')
+            .then(res => res.json())
+            .then(data => setsmartphones(data.products));
+        })
+
     }, [])
     
   return (

@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './paths/Home';
 import Products from "./paths/Products";
 import Categories from "./paths/Categories";
+import ProductsCategory from "./paths/ProductsCategory";
 
 export const ColorContext = createContext();
 
@@ -17,6 +18,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/products" element={<Products />} />
             <Route path="/categories" element={<Categories />} />
+            <Route path="/categories/:category" element={<ProductsCategory />} />
         </Routes>
       </BrowserRouter>
     </ColorContext.Provider>

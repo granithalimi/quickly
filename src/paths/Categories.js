@@ -33,7 +33,7 @@ function Categories() {
                     categories.map((category, ind) => (
                         <Link to={`/categories/${category.slug}`} key={ind} className={`${darkMode ? "hover:bg-gray-500" : "hover:bg-gray-200"} flex flex-col border border-gray-300 rounded-xl h-72 relative cursor-pointer hover:scale-105 duration-300`}>
                             <div className="w-full h-3/5 p-3">
-                                <img src={logo} className="w-full h-full object-contain"  />
+                                <img src={logo} className="w-full h-full object-contain" alt={logo} />
                             </div>
                             <div className="w-full h-2/5 p-3">
                                 <h1 className={`${(darkMode) ? "text-white" : ""} text-center font-bold`}>{category.name}</h1>

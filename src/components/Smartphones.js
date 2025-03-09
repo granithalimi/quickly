@@ -3,10 +3,22 @@ import { ColorContext } from '../App'
 import '../assets/css/style.css'
 import { useInView } from 'react-intersection-observer'
 import { Link } from 'react-router-dom'
+import logo from "../assets/images/logo.png"
 
 function Smartphones() {
     const [smartphones, setsmartphones] = useState([])
-    const [darkMode, setdarkMode] = useContext(ColorContext)
+    const [darkMode] = useContext(ColorContext)
+    const [loadedImages, setloadedImages] = useState(
+        Array(12).fill(false)
+    )
+
+    const imageLoaded = (ind) => {
+        setloadedImages(p => {
+            const updatedArray = [...p]
+            updatedArray[ind] = true
+            return updatedArray
+        })
+    }
 
     const [refPhones, inViewPhones] = useInView({
         threshold: .5,
@@ -35,7 +47,7 @@ function Smartphones() {
                         smartphones.map((phone, ind) => (
                             <Link key={ind} className={`${darkMode ? "hover:bg-gray-500" : "hover:bg-gray-200"} ${(inViewPhones === true) ? "show-phones" : ""} hidden-phones flex flex-col border border-gray-300 rounded-xl h-72 relative cursor-pointer hover:scale-105`}>
                                 <div className="w-full h-3/5 p-3">
-                                    <img className="w-full h-full object-contain" src={phone.images[0]} />
+                                    <img loading="lazy" onLoad={e => imageLoaded(ind)} className="w-full h-full object-contain" src={(loadedImages[ind] === false) ? logo : phone.images[0]} alt={phone.title} />
                                 </div>
                                 <div className="w-full h-2/5 p-3">
                                     <h1 className={`${(darkMode) ? "text-white" : ""} text-center font-bold`}>{phone.title}</h1>

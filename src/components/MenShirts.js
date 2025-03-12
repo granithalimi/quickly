@@ -44,7 +44,7 @@ function MensShirts() {
                     {
                         (menShirts && menShirts.length > 0) &&
                         menShirts.map((shirt, ind) => (
-                            <Link key={ind} className={`${darkMode ? "hover:bg-gray-500" : "hover:bg-gray-200"} ${(inViewShirts === true) ? "show-phones" : ""} hidden-phones flex flex-col border border-gray-300 rounded-xl h-72 relative cursor-pointer hover:scale-105`}>
+                            <Link to={`/product/${shirt.id}`} key={ind} className={`${darkMode ? "hover:bg-gray-500" : "hover:bg-gray-200"} ${(inViewShirts === true) ? "show-phones" : ""} hidden-phones flex flex-col border border-gray-300 rounded-xl h-72 relative cursor-pointer hover:scale-105`}>
                                 <div className="w-full h-3/5 p-3">
                                     <img loading="lazy" onLoad={e => imageLoaded(ind)} className="w-full h-full object-contain" src={(loadedImages[ind] === false) ? logo : shirt.images[0]} alt={shirt.title} />
                                 </div>

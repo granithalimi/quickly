@@ -45,7 +45,7 @@ function Smartphones() {
                     {
                         (smartphones && smartphones.length > 0) &&
                         smartphones.map((phone, ind) => (
-                            <Link key={ind} className={`${darkMode ? "hover:bg-gray-500" : "hover:bg-gray-200"} ${(inViewPhones === true) ? "show-phones" : ""} hidden-phones flex flex-col border border-gray-300 rounded-xl h-72 relative cursor-pointer hover:scale-105`}>
+                            <Link to={`/product/${phone.id}`} key={ind} className={`${darkMode ? "hover:bg-gray-500" : "hover:bg-gray-200"} ${(inViewPhones === true) ? "show-phones" : ""} hidden-phones flex flex-col border border-gray-300 rounded-xl h-72 relative cursor-pointer hover:scale-105`}>
                                 <div className="w-full h-3/5 p-3">
                                     <img loading="lazy" onLoad={e => imageLoaded(ind)} className="w-full h-full object-contain" src={(loadedImages[ind] === false) ? logo : phone.images[0]} alt={phone.title} />
                                 </div>

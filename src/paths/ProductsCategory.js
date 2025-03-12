@@ -40,7 +40,7 @@ function ProductsCategory() {
             {
               (products && products.length > 0) &&
               products.map((prod, ind) => (
-                <Link key={ind} className={`${darkMode ? "hover:bg-gray-500" : "hover:bg-gray-200"} flex flex-col border border-gray-300 rounded-xl h-72 relative cursor-pointer hover:scale-105 duration-300`}>
+                <Link to={`/product/${prod.id}`} key={ind} className={`${darkMode ? "hover:bg-gray-500" : "hover:bg-gray-200"} flex flex-col border border-gray-300 rounded-xl h-72 relative cursor-pointer hover:scale-105 duration-300`}>
                     <div className="w-full h-3/5 p-3">
                         <img loading="lazy" onLoad={e => imageLoaded(ind)} className="w-full h-full object-contain" src={(loadedImages[ind] === false) ? logo : prod.images[0]} alt={prod.title} />
                     </div>

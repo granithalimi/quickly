@@ -5,6 +5,7 @@ import Home from './paths/Home';
 import Products from "./paths/Products";
 import Categories from "./paths/Categories";
 import ProductsCategory from "./paths/ProductsCategory";
+import Product from "./paths/Product";
 
 export const ColorContext = createContext();
 
@@ -19,6 +20,7 @@ function App() {
             <Route path="/products" element={<Products />} />
             <Route path="/categories" element={<Categories />} />
             <Route path="/categories/:category" element={<ProductsCategory />} />
+            <Route path="/product/:id" element={<Product />} />
         </Routes>
       </BrowserRouter>
     </ColorContext.Provider>

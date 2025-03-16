@@ -15,7 +15,7 @@ function CategoriesSection() {
     const [darkMode] = useContext(ColorContext)
 
   return (
-    <div id="shit" className='my-10 py-60 overflow-hidden relative'>
+    <div id="products" className='my-10 py-60 overflow-hidden relative'>
         <div ref={refCategories} className="mx-auto grid lg:grid-cols-5 md:grid-cols-2 grid-cols-1 w-2/3 gap-16">
             <div className={`${(inViewCategories === true) && "show-prod-left"} hidden-prod-left flex flex-col justify-center md:items-end items-start lg:col-span-3`}>
                 <h1 className={"montserrat-font text-3xl text-blue-400"}>Check All Categories!</h1>

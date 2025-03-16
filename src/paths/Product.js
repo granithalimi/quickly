@@ -19,7 +19,7 @@ function Product() {
             .then(data => data.json())
             .then(data => setproduct(data))
         })
-    }, [])
+    }, [id])
 
     const right = () => {
         if(index === product.images.length - 1){
@@ -49,17 +49,13 @@ function Product() {
                 (product.title) &&
                 <div className="w-2/3 grid grid-cols-1 lg:grid-cols-2 gap-20">
                     <div className="h-96 mx-auto flex overflow-hidden relative">
-                        {/* FIX PLS */}
                         {
-                            (product.images.length > 1) ?
                             product.images.map((img, ind) => (
                                 <img key={ind} src={img} className="w-full h-full object-contain shrink-0 grow-0 duration-300" style={{translate : `${-100 * index}%`}}/>
-                            )) :
-                            <img src={product.images[0]} className="w-full h-full object-contain shrink-0 grow-0 duration-300" style={{translate : `${-100 * index}%`}}/>
+                            ))
                         }
-                        <button onClick={e => left()} className={`absolute px-3 left-0 top-0 bottom-0 hover:bg-[rgb(0,0,0,0.1)] ${(darkMode === true) ? "text-white" : "text-black"} text-2xl duration-500`}><FaArrowLeft /></button>
-                        <button onClick={e => right()} className={`absolute px-3 right-0 top-0 bottom-0 hover:bg-[rgb(0,0,0,0.1)] ${(darkMode === true) ? "text-white" : "text-black"} text-2xl duration-500`}><FaArrowRight /></button>
-
+                        <button onClick={e => left()} className={`${product.images.length > 1 ? "absolute" : "hidden"} px-3 left-0 top-0 bottom-0 hover:bg-[rgb(0,0,0,0.1)] ${(darkMode === true) ? "text-white" : "text-black"} text-2xl duration-500`}><FaArrowLeft /></button>
+                        <button onClick={e => right()} className={`${product.images.length > 1 ? "absolute" : "hidden"} px-3 right-0 top-0 bottom-0 hover:bg-[rgb(0,0,0,0.1)] ${(darkMode === true) ? "text-white" : "text-black"} text-2xl duration-500`}><FaArrowRight /></button>
                     </div>
                     <div className="flex flex-col justify-between items-start">
                         <div className="w-full">

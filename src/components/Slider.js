@@ -12,7 +12,7 @@ function Slider() {
   useEffect(() => {
     intervalId.current = setInterval(() => {
       right()
-    }, 4000)
+    }, 3000)
   
     return () => {
       clearInterval(intervalId.current)

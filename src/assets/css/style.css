@@ -66,6 +66,20 @@ body {
     transition: all 1s;
 }
 
+.hide-search_div{
+    opacity: 0;
+    transform: translateY(50%);
+    filter: blur(5px);
+    transition: all 300ms;
+}
+
+.show-search_div{
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+    transition: all 300ms;
+}
+
 #shit{
     background-image: url("../images/products.jpg");
     background-position: center;

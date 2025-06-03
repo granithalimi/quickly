@@ -117,7 +117,7 @@ function Header() {
       </div>
       
       {/* SearchDiv */}
-      <div className={`${(search === true) && "show-search_div"} hide-search_div ${(darkMode === true) ? "bg-gray-700" : "bg-white"} w-full h-screen fixed top-16 z-20 overflow-scroll`}>
+      <div className={`${(search === true) ? "show-search_div z-20" : "-z-10"} hide-search_div ${(darkMode === true) ? "bg-gray-700" : "bg-white"} w-full h-screen fixed top-16 z-20 overflow-scroll`}>
         <div className="w-full lg:h-20 md:h-16 h-10 flex justify-center">
           <div className="w-2/3 h-full flex items-center mt-3">
               <input ref={input} onChange={e => keyPress(e)} className={`${(darkMode === true) ? "bg-gray-700 text-white" : ""} border-none focus:outline-none w-full h-full ps-3 lg:text-4xl md:text-2xl text-xl`} placeholder="Search..." />
